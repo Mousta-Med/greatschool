@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ClassController;
 use App\Http\Controllers\Homecontroller;
 use Illuminate\Support\Facades\Route;
 
@@ -24,13 +25,21 @@ Route::get('/admin/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+// Route::get('/admin/classes', function () {
+//     return view('classes');
+// })->middleware(['auth', 'verified'])->name('classes');
+
 Route::middleware('auth')->group(function () {
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-Route::get('verify-email', 'Auth\VerificationController@send')->name('verification.send');
-Route::put('password/update', 'Auth\PasswordController@update')->name('password.update');
+Route::middleware('auth')->group(function () {
+    Route::get('/admin/classes', [ClassController::class, 'index'])->name('classes');
+    Route::post('/admin/classes', [ClassController::class, 'store'])->name('classes.store');
+    // Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 
 

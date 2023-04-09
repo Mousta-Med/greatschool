@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="h-0 min-h-[714px] bg-white">
+    <div class="h-0 min-h-[714px] bg-gray-100">
         <div x-data="{ open: false }" @keydown.window.escape="open = false" class="h-full flex">
 
             <div x-show="open" class="fixed inset-0 flex z-40 lg:hidden" x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state." x-ref="dialog" aria-modal="true">
@@ -30,14 +30,14 @@
                         <nav aria-label="Sidebar" class="mt-5">
                             <div class="px-2 space-y-1">
 
-                                <a href="{{ route('dashboard') }}" class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                <a href="{{ route('dashboard') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;" x-description="Heroicon name: outline/home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                         <path stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                                         </path>
                                     </svg>
                                     Dashboard
                                 </a>
-                                <a href="{{ route('classes') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                <a href="{{ route('classes') }}" class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                                         <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)">
                                             <path d="M1447 4842 c-15 -16 -17 -49 -17 -259 l0 -240 -67 -17 c-225 -55 -382 -288 -345 -512 13 -77 57 -176 101 -226 17 -20 31 -38 31 -42 0 -3 -24 -6 -53 -6 -164 0 -346 -118 -431 -279 -65 -124 -66 -135 -66 -827 0 -607 0 -621 -20 -639 -31 -28 -66 -94 -85 -160 -37 -127 4 -284 100 -380 l41 -42 -50 -26 c-147 -77 -273 -239 -311 -398 -22 -95 -22 -491 1 -513 14 -14 235 -16 2284 -16 2049 0 2270 2 2284 16 14 13 16 48 16 229 0 118 -5 238 -11 267 -6 29 -29 91 -51 138 -33 69 -56 101 -122 165 -47 47 -105 93 -138 110 l-56 29 34 31 c48 43 99 134 114 205 38 179 -52 360 -218 442 -62 31 -73 33 -172 33 -99 0 -110 -2 -172 -33 -84 -41 -167 -128 -199 -209 -19 -46 -23 -78 -24 -153 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -59 -32 c-74 -41 -183 -144 -222 -210 -16 -28 -32 -51 -35 -51 -3 0 -18 23 -35 51 -39 66 -148 169 -222 210 l-58 31 44 46 c24 24 57 75 75 111 28 60 31 75 31 161 -1 75 -5 107 -24 153 -32 81 -115 168 -199 209 -62 31 -73 33 -172 33 -99 0 -110 -2 -172 -33 -84 -41 -167 -128 -199 -209 -19 -46 -23 -78 -24 -153 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -59 -32 c-74 -41 -183 -144 -222 -210 -16 -28 -32 -51 -35 -51 -3 0 -14 17 -25 37 -34 63 -148 176 -222 218 l-69 39 43 43 c183 189 128 509 -107 627 -38 19 -87 37 -110 41 l-40 7 2 176 3 177 1228 5 c1077 4 1229 7 1237 20 5 8 10 92 10 186 0 205 0 204 -103 204 l-67 0 0 1063 c0 1018 -1 1065 -18 1080 -17 16 -131 17 -1439 17 -1363 0 -1421 -1 -1436 -18z m2768 -1122 l0 -1015 -1087 -3 -1088 -2 0 160 0 160 214 0 c209 0 216 1 240 23 55 48 426 542 441 586 40 117 -8 247 -113 308 -41 25 -57 28 -132 28 -127 0 -145 -14 -326 -240 l-148 -185 -208 0 c-114 0 -208 3 -208 6 0 4 14 22 31 42 45 51 86 145 99 225 35 221 -108 442 -327 507 l-43 13 0 204 0 203 1328 -2 1327 -3 0 -1015z m-2603 463 c242 -108 265 -454 39 -590 -206 -124 -472 1 -506 238 -8 54 9 148 37 202 36 71 121 140 208 168 44 15 171 4 222 -18z m1138 -356 c37 -19 70 -74 70 -117 0 -45 -4 -50 -230 -344 l-165 -215 -231 -1 c-218 0 -233 -1 -258 -21 l-26 -20 0 -595 c0 -490 -2 -594 -13 -594 -36 0 -140 -65 -190 -120 -77 -83 -101 -147 -102 -270 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -55 -29 c-70 -36 -187 -146 -226 -213 -16 -28 -32 -51 -35 -51 -3 0 -14 17 -25 37 -34 63 -148 176 -222 218 l-69 39 42 41 c22 23 56 73 75 111 32 64 34 75 34 164 -1 116 -25 185 -91 258 l-44 50 0 578 c0 523 -2 579 -17 596 -21 24 -68 23 -93 -2 -20 -20 -20 -33 -20 -559 l0 -539 -37 10 c-38 10 -179 6 -220 -7 l-23 -7 0 558 c0 620 3 653 62 752 41 67 100 121 176 158 l57 29 620 5 c386 3 626 9 636 15 10 6 74 82 144 170 147 185 182 224 210 235 30 13 87 11 115 -3z m1638 -1334 l-3 -78 -1172 -3 -1173 -2 0 80 0 80 1175 0 1176 0 -3 -77z m-3400 -709 c182 -75 223 -323 76 -453 -45 -39 -124 -71 -178 -71 -113 0 -230 87 -261 195 -64 219 153 416 363 329z m1120 -1 c46 -19 110 -80 134 -127 13 -24 23 -68 26 -109 4 -60 2 -73 -27 -131 -60 -123 -185 -179 -313 -142 -81 23 -130 64 -167 137 -57 114 -35 238 58 322 81 73 189 92 289 50z m1132 -8 c138 -70 188 -225 119 -364 -37 -73 -86 -114 -167 -137 -128 -37 -253 19 -313 142 -29 58 -31 71 -27 131 6 82 31 136 88 187 86 77 197 93 300 41z m1110 3 c95 -41 151 -123 158 -232 4 -66 1 -76 -29 -135 -74 -141 -232 -189 -371 -114 -87 47 -136 132 -137 238 -1 76 30 146 88 198 85 76 183 92 291 45z m-1099 -664 c88 -26 150 -63 215 -128 116 -116 144 -202 144 -438 l0 -168 -492 2 -493 3 1 170 c1 148 4 179 23 235 71 206 252 338 467 339 46 1 103 -6 135 -15z m1114 1 c85 -23 152 -62 220 -130 117 -116 145 -203 145 -442 l0 -163 -492 2 -493 3 1 170 c1 148 4 179 23 235 86 250 343 390 596 325z m-3370 -10 c92 -24 164 -64 232 -131 116 -114 157 -244 151 -479 l-3 -110 -495 0 -495 0 0 155 c1 130 4 166 23 225 48 157 155 270 307 323 100 35 188 41 280 17z m1170 -16 c129 -47 220 -130 280 -253 42 -86 57 -183 53 -341 l-3 -110 -495 0 -495 0 1 160 c1 182 12 235 70 331 43 72 84 115 149 158 48 32 141 70 195 80 55 10 187 -3 245 -25z" />
@@ -120,14 +120,14 @@
                             </div>
                             <nav class="mt-5 flex-1" aria-label="Sidebar">
                                 <div class="px-2 space-y-1">
-                                    <a href="{{ route('dashboard') }}" class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    <a href="{{ route('dashboard') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500" x-state:on="Current" x-state:off="Default" x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;" x-description="Heroicon name: outline/home" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                             <path stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
                                             </path>
                                         </svg>
                                         Dashboard
                                     </a>
-                                    <a href="{{ route('classes') }}" class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    <a href="{{ route('classes') }}" class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6" fill="currentColor" stroke="currentColor" xmlns="http://www.w3.org/2000/svg" version="1.0" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                                             <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)">
                                                 <path d="M1447 4842 c-15 -16 -17 -49 -17 -259 l0 -240 -67 -17 c-225 -55 -382 -288 -345 -512 13 -77 57 -176 101 -226 17 -20 31 -38 31 -42 0 -3 -24 -6 -53 -6 -164 0 -346 -118 -431 -279 -65 -124 -66 -135 -66 -827 0 -607 0 -621 -20 -639 -31 -28 -66 -94 -85 -160 -37 -127 4 -284 100 -380 l41 -42 -50 -26 c-147 -77 -273 -239 -311 -398 -22 -95 -22 -491 1 -513 14 -14 235 -16 2284 -16 2049 0 2270 2 2284 16 14 13 16 48 16 229 0 118 -5 238 -11 267 -6 29 -29 91 -51 138 -33 69 -56 101 -122 165 -47 47 -105 93 -138 110 l-56 29 34 31 c48 43 99 134 114 205 38 179 -52 360 -218 442 -62 31 -73 33 -172 33 -99 0 -110 -2 -172 -33 -84 -41 -167 -128 -199 -209 -19 -46 -23 -78 -24 -153 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -59 -32 c-74 -41 -183 -144 -222 -210 -16 -28 -32 -51 -35 -51 -3 0 -18 23 -35 51 -39 66 -148 169 -222 210 l-58 31 44 46 c24 24 57 75 75 111 28 60 31 75 31 161 -1 75 -5 107 -24 153 -32 81 -115 168 -199 209 -62 31 -73 33 -172 33 -99 0 -110 -2 -172 -33 -84 -41 -167 -128 -199 -209 -19 -46 -23 -78 -24 -153 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -59 -32 c-74 -41 -183 -144 -222 -210 -16 -28 -32 -51 -35 -51 -3 0 -14 17 -25 37 -34 63 -148 176 -222 218 l-69 39 43 43 c183 189 128 509 -107 627 -38 19 -87 37 -110 41 l-40 7 2 176 3 177 1228 5 c1077 4 1229 7 1237 20 5 8 10 92 10 186 0 205 0 204 -103 204 l-67 0 0 1063 c0 1018 -1 1065 -18 1080 -17 16 -131 17 -1439 17 -1363 0 -1421 -1 -1436 -18z m2768 -1122 l0 -1015 -1087 -3 -1088 -2 0 160 0 160 214 0 c209 0 216 1 240 23 55 48 426 542 441 586 40 117 -8 247 -113 308 -41 25 -57 28 -132 28 -127 0 -145 -14 -326 -240 l-148 -185 -208 0 c-114 0 -208 3 -208 6 0 4 14 22 31 42 45 51 86 145 99 225 35 221 -108 442 -327 507 l-43 13 0 204 0 203 1328 -2 1327 -3 0 -1015z m-2603 463 c242 -108 265 -454 39 -590 -206 -124 -472 1 -506 238 -8 54 9 148 37 202 36 71 121 140 208 168 44 15 171 4 222 -18z m1138 -356 c37 -19 70 -74 70 -117 0 -45 -4 -50 -230 -344 l-165 -215 -231 -1 c-218 0 -233 -1 -258 -21 l-26 -20 0 -595 c0 -490 -2 -594 -13 -594 -36 0 -140 -65 -190 -120 -77 -83 -101 -147 -102 -270 0 -86 3 -101 32 -162 17 -37 51 -87 75 -111 l44 -44 -55 -29 c-70 -36 -187 -146 -226 -213 -16 -28 -32 -51 -35 -51 -3 0 -14 17 -25 37 -34 63 -148 176 -222 218 l-69 39 42 41 c22 23 56 73 75 111 32 64 34 75 34 164 -1 116 -25 185 -91 258 l-44 50 0 578 c0 523 -2 579 -17 596 -21 24 -68 23 -93 -2 -20 -20 -20 -33 -20 -559 l0 -539 -37 10 c-38 10 -179 6 -220 -7 l-23 -7 0 558 c0 620 3 653 62 752 41 67 100 121 176 158 l57 29 620 5 c386 3 626 9 636 15 10 6 74 82 144 170 147 185 182 224 210 235 30 13 87 11 115 -3z m1638 -1334 l-3 -78 -1172 -3 -1173 -2 0 80 0 80 1175 0 1176 0 -3 -77z m-3400 -709 c182 -75 223 -323 76 -453 -45 -39 -124 -71 -178 -71 -113 0 -230 87 -261 195 -64 219 153 416 363 329z m1120 -1 c46 -19 110 -80 134 -127 13 -24 23 -68 26 -109 4 -60 2 -73 -27 -131 -60 -123 -185 -179 -313 -142 -81 23 -130 64 -167 137 -57 114 -35 238 58 322 81 73 189 92 289 50z m1132 -8 c138 -70 188 -225 119 -364 -37 -73 -86 -114 -167 -137 -128 -37 -253 19 -313 142 -29 58 -31 71 -27 131 6 82 31 136 88 187 86 77 197 93 300 41z m1110 3 c95 -41 151 -123 158 -232 4 -66 1 -76 -29 -135 -74 -141 -232 -189 -371 -114 -87 47 -136 132 -137 238 -1 76 30 146 88 198 85 76 183 92 291 45z m-1099 -664 c88 -26 150 -63 215 -128 116 -116 144 -202 144 -438 l0 -168 -492 2 -493 3 1 170 c1 148 4 179 23 235 71 206 252 338 467 339 46 1 103 -6 135 -15z m1114 1 c85 -23 152 -62 220 -130 117 -116 145 -203 145 -442 l0 -163 -492 2 -493 3 1 170 c1 148 4 179 23 235 86 250 343 390 596 325z m-3370 -10 c92 -24 164 -64 232 -131 116 -114 157 -244 151 -479 l-3 -110 -495 0 -495 0 0 155 c1 130 4 166 23 225 48 157 155 270 307 323 100 35 188 41 280 17z m1170 -16 c129 -47 220 -130 280 -253 42 -86 57 -183 53 -341 l-3 -110 -495 0 -495 0 1 160 c1 182 12 235 70 331 43 72 84 115 149 158 48 32 141 70 195 80 55 10 187 -3 245 -25z" />
@@ -213,7 +213,175 @@
                     <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
                         <!-- Start main area-->
                         <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
-                            <div class="h-full border-2 border-gray-200 border-dashed rounded-lg"></div>
+                            <div class="h-full rounded-lg ">
+                                <!-- <div x-data="{ showModal: false, roomClass: '' }">
+                                    <button @click="showModal = true" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                                        Add Room Class
+                                    </button>
+
+                                    <div x-show="showModal" class="fixed z-10 inset-0 overflow-y-auto" style="display: none;">
+                                        <div class="flex items-center justify-center min-h-screen">
+                                            <div class="fixed inset-0 bg-gray-500 opacity-75"></div>
+
+                                            <div class="bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:w-full md:w-1/2 lg:w-1/3 max-h-80">
+                                                <div class="bg-gray-100 border-b border-gray-200 px-4 py-3">
+                                                    <h3 class="text-lg font-semibold text-gray-800">Add Room Class</h3>
+                                                </div>
+
+                                                <div class="bg-white px-4 py-3">
+                                                    <label class="block font-bold text-gray-700 mb-2" for="room-class">
+                                                        Room Class:
+                                                    </label>
+                                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="room-class" type="text" x-model="roomClass">
+
+                                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3" @click="saveRoomClass()">Save</button>
+                                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-3" @click="showModal = false">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <div x-data="{ open: false }" x-init="">
+                                    <div class="fixed z-10 inset-0 overflow-y-auto" x-show="open" x-transition:enter="ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="open = false" aria-hidden="true">
+                                        <div class="flex items-center justify-center min-h-screen">
+                                            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"> </div>
+                                            <div class="relative inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full sm:p-6">
+                                                <div class="sm:flex sm:items-start">
+                                                    <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
+                                                        <svg class="h-6 w-6 text-red-600" x-description="Heroicon name: outline/exclamation" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                                        <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                                            Deactivate account
+                                                        </h3>
+                                                        <div class="mt-2">
+                                                            <p class="text-sm text-gray-500">
+                                                                Are you sure you want to deactivate your account? All of your data will be permanently removed from our servers forever. This action cannot be undone.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+                                                    <button type="button" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm" @click="open = false">
+                                                        Deactivate
+                                                    </button>
+                                                    <button type="button" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm" @click="open = false">
+                                                        Cancel
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="bg-gray-100 py-10">
+
+                                        <div class="mx-auto max-w-7xl">
+                                            <div class="px-4 sm:px-6 lg:px-8">
+                                                <div class="sm:flex sm:items-center">
+                                                    <div class="sm:flex-auto">
+                                                        <h1 class="text-xl font-semibold text-gray-900">Users</h1>
+                                                    </div>
+                                                    <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+                                                        <button type="button" @click="open = true" class="inline-flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:w-auto">Add user</button>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-8 flex flex-col">
+                                                    <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                                        <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                                                            <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                                                                <table class="min-w-full divide-y divide-gray-300">
+                                                                    <thead class="bg-gray-50">
+                                                                        <tr>
+                                                                            <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Name</th>
+                                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Title</th>
+                                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email</th>
+                                                                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Role</th>
+                                                                            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+                                                                                <span class="sr-only">Edit</span>
+                                                                            </th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody class="divide-y divide-gray-200 bg-white">
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Lindsay Walton</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Front-end Developer</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">lindsay.walton@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Courtney Henry</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Designer</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">courtney.henry@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Courtney Henry</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Tom Cook</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Director, Product Development</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">tom.cook@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Tom Cook</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Whitney Francis</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Copywriter</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">whitney.francis@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Admin</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Whitney Francis</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Leonard Krasner</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Senior Designer</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">leonard.krasner@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Owner</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Leonard Krasner</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                        <tr>
+                                                                            <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">Floyd Miles</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Principal Designer</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">floy.dmiles@example.com</td>
+                                                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Member</td>
+                                                                            <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                                                                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Floyd Miles</span></a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
                         </div>
                         <!-- End main area -->
                     </main>
