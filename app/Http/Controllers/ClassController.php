@@ -12,7 +12,9 @@ class ClassController extends Controller
      */
     public function index()
     {
-        return view('classes');
+        $classes = roomClass::latest()->get();
+        // dd($classes);
+        return view('classes', compact("classes"));
     }
 
     /**
@@ -65,8 +67,11 @@ class ClassController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(roomClass $roomClass)
+    public function destroy($id)
     {
-        //
+        $roomClass = RoomClass::findOrFail($id);
+        $roomClass->delete();
+
+        return redirect()->route('classes');
     }
 }
