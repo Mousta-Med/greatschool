@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div class="h-0 min-h-[714px] bg-white">
+    <div class="h-0 min-h-[714px] bg-gray-100">
         <div x-data="{ open: false }" @keydown.window.escape="open = false" class="h-full flex">
+
             <div x-show="open" class="fixed inset-0 flex z-40 lg:hidden"
                 x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state." x-ref="dialog"
                 aria-modal="true">
@@ -56,7 +57,7 @@
                             <div class="px-2 space-y-1">
 
                                 <a href="{{ route('dashboard') }}"
-                                    class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500" x-state:on="Current"
                                         x-state:off="Default"
                                         x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;"
@@ -69,7 +70,7 @@
                                     Dashboard
                                 </a>
                                 <a href="{{ route('classes') }}"
-                                    class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6" fill="currentColor"
                                         stroke="currentColor" xmlns="http://www.w3.org/2000/svg" version="1.0"
                                         viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
@@ -80,7 +81,7 @@
                                     </svg>
                                     Classes
                                 </a>
-                                <a href="{{ route('students') }}"
+                                <a href="#"
                                     class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -100,7 +101,7 @@
                                     </svg>
                                     Students
                                 </a>
-                                <a href="{{ route('teachers') }}"
+                                <a href="#"
                                     class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="teacher">
@@ -162,6 +163,8 @@
                     <!-- Force sidebar to shrink to fit close icon -->
                 </div>
             </div>
+
+
             <!-- Static sidebar for desktop -->
             <div class="hidden lg:flex lg:flex-shrink-0">
                 <div class="flex flex-col w-64">
@@ -184,7 +187,7 @@
                             <nav class="mt-5 flex-1" aria-label="Sidebar">
                                 <div class="px-2 space-y-1">
                                     <a href="{{ route('dashboard') }}"
-                                        class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500"
                                             x-state:on="Current" x-state:off="Default"
                                             x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;"
@@ -198,7 +201,7 @@
                                         Dashboard
                                     </a>
                                     <a href="{{ route('classes') }}"
-                                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                        class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                             fill="currentColor" stroke="currentColor"
                                             xmlns="http://www.w3.org/2000/svg" version="1.0"
@@ -210,7 +213,7 @@
                                         </svg>
                                         Classes
                                     </a>
-                                    <a href="{{ route('students') }}"
+                                    <a href="#"
                                         class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                             xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +234,7 @@
                                         </svg>
                                         Students
                                     </a>
-                                    <a href="{{ route('teachers') }}"
+                                    <a href="#"
                                         class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="teacher">
@@ -287,6 +290,83 @@
                             </a>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="flex flex-col min-w-0 flex-1 overflow-hidden">
+                <div class="lg:hidden">
+                    <div class="flex items-center justify-between border-b border-gray-200 px-4 py-1.5 bg-sent">
+                        <div>
+                            <a href="{{ route('home') }}">
+                                <svg class="" xmlns="http://www.w3.org/2000/svg" width="99" height="51"
+                                    viewBox="0 0 99 51" fill="red">
+                                    <path
+                                        d="M16.94 13.14C16.3987 12.0013 15.6147 11.124 14.588 10.508C13.5613 9.87333 12.3667 9.556 11.004 9.556C9.64133 9.556 8.40933 9.87333 7.308 10.508C6.22533 11.124 5.36667 12.02 4.732 13.196C4.116 14.3533 3.808 15.6973 3.808 17.228C3.808 18.7587 4.116 20.1027 4.732 21.26C5.36667 22.4173 6.22533 23.3133 7.308 23.948C8.40933 24.564 9.64133 24.872 11.004 24.872C12.908 24.872 14.476 24.3027 15.708 23.164C16.94 22.0253 17.6587 20.4853 17.864 18.544H10.08V16.472H20.58V18.432C20.4307 20.0373 19.9267 21.512 19.068 22.856C18.2093 24.1813 17.08 25.236 15.68 26.02C14.28 26.7853 12.7213 27.168 11.004 27.168C9.19333 27.168 7.54133 26.748 6.048 25.908C4.55467 25.0493 3.36933 23.864 2.492 22.352C1.63333 20.84 1.204 19.132 1.204 17.228C1.204 15.324 1.63333 13.616 2.492 12.104C3.36933 10.5733 4.55467 9.388 6.048 8.548C7.54133 7.68933 9.19333 7.26 11.004 7.26C13.076 7.26 14.9053 7.77333 16.492 8.8C18.0973 9.82667 19.264 11.2733 19.992 13.14H16.94ZM34.225 27L29.577 19.02H26.497V27H23.949V7.484H30.249C31.7236 7.484 32.965 7.736 33.973 8.24C34.9996 8.744 35.765 9.42533 36.269 10.284C36.773 11.1427 37.025 12.1227 37.025 13.224C37.025 14.568 36.633 15.7533 35.849 16.78C35.0836 17.8067 33.9263 18.488 32.377 18.824L37.277 27H34.225ZM26.497 16.976H30.249C31.6303 16.976 32.6663 16.64 33.357 15.968C34.0476 15.2773 34.393 14.3627 34.393 13.224C34.393 12.0667 34.0476 11.1707 33.357 10.536C32.685 9.90133 31.649 9.584 30.249 9.584H26.497V16.976ZM43.5321 9.556V16.08H50.6441V18.18H43.5321V24.9H51.4841V27H40.9841V7.456H51.4841V9.556H43.5321ZM66.8756 22.66H58.3636L56.7956 27H54.1076L61.1636 7.596H64.1036L71.1316 27H68.4436L66.8756 22.66ZM66.1476 20.588L62.6196 10.732L59.0916 20.588H66.1476ZM86.2188 7.484V9.556H80.8988V27H78.3508V9.556H73.0028V7.484H86.2188Z"
+                                        fill="white" />
+                                    <path
+                                        d="M43.336 45.144C42.664 45.144 42.0613 45.032 41.528 44.808C40.9947 44.5733 40.5733 44.2533 40.264 43.848C39.9547 43.432 39.784 42.9573 39.752 42.424H41.256C41.2987 42.8613 41.5013 43.2187 41.864 43.496C42.2373 43.7733 42.7227 43.912 43.32 43.912C43.8747 43.912 44.312 43.7893 44.632 43.544C44.952 43.2987 45.112 42.9893 45.112 42.616C45.112 42.232 44.9413 41.9493 44.6 41.768C44.2587 41.576 43.7307 41.3893 43.016 41.208C42.3653 41.0373 41.832 40.8667 41.416 40.696C41.0107 40.5147 40.6587 40.2533 40.36 39.912C40.072 39.56 39.928 39.1013 39.928 38.536C39.928 38.088 40.0613 37.6773 40.328 37.304C40.5947 36.9307 40.9733 36.6373 41.464 36.424C41.9547 36.2 42.5147 36.088 43.144 36.088C44.1147 36.088 44.8987 36.3333 45.496 36.824C46.0933 37.3147 46.4133 37.9867 46.456 38.84H45C44.968 38.3813 44.7813 38.0133 44.44 37.736C44.1093 37.4587 43.6613 37.32 43.096 37.32C42.5733 37.32 42.1573 37.432 41.848 37.656C41.5387 37.88 41.384 38.1733 41.384 38.536C41.384 38.824 41.4747 39.064 41.656 39.256C41.848 39.4373 42.0827 39.5867 42.36 39.704C42.648 39.8107 43.0427 39.9333 43.544 40.072C44.1733 40.2427 44.6853 40.4133 45.08 40.584C45.4747 40.744 45.8107 40.9893 46.088 41.32C46.376 41.6507 46.5253 42.0827 46.536 42.616C46.536 43.096 46.4027 43.528 46.136 43.912C45.8693 44.296 45.4907 44.6 45 44.824C44.52 45.0373 43.9653 45.144 43.336 45.144ZM48.0474 40.6C48.0474 39.6933 48.2287 38.904 48.5914 38.232C48.954 37.5493 49.4554 37.0213 50.0954 36.648C50.746 36.2747 51.4874 36.088 52.3194 36.088C53.3967 36.088 54.282 36.3493 54.9754 36.872C55.6794 37.3947 56.1434 38.12 56.3674 39.048H54.7994C54.65 38.5147 54.3567 38.0933 53.9194 37.784C53.4927 37.4747 52.9594 37.32 52.3194 37.32C51.4874 37.32 50.8154 37.608 50.3034 38.184C49.7914 38.7493 49.5354 39.5547 49.5354 40.6C49.5354 41.656 49.7914 42.472 50.3034 43.048C50.8154 43.624 51.4874 43.912 52.3194 43.912C52.9594 43.912 53.4927 43.7627 53.9194 43.464C54.346 43.1653 54.6394 42.7387 54.7994 42.184H56.3674C56.1327 43.08 55.6634 43.8 54.9594 44.344C54.2554 44.8773 53.3754 45.144 52.3194 45.144C51.4874 45.144 50.746 44.9573 50.0954 44.584C49.4554 44.2107 48.954 43.6827 48.5914 43C48.2287 42.3173 48.0474 41.5173 48.0474 40.6ZM62.6621 36.072C63.3235 36.072 63.9208 36.216 64.4541 36.504C64.9875 36.7813 65.4035 37.2027 65.7021 37.768C66.0115 38.3333 66.1661 39.0213 66.1661 39.832V45H64.7261V40.04C64.7261 39.1653 64.5075 38.4987 64.0701 38.04C63.6328 37.5707 63.0355 37.336 62.2781 37.336C61.5101 37.336 60.8968 37.576 60.4381 38.056C59.9901 38.536 59.7661 39.2347 59.7661 40.152V45H58.3101V33.16H59.7661V37.48C60.0541 37.032 60.4488 36.6853 60.9501 36.44C61.4621 36.1947 62.0328 36.072 62.6621 36.072ZM72.3685 45.144C71.5472 45.144 70.8005 44.9573 70.1285 44.584C69.4672 44.2107 68.9445 43.6827 68.5605 43C68.1872 42.3067 68.0005 41.5067 68.0005 40.6C68.0005 39.704 68.1925 38.9147 68.5765 38.232C68.9712 37.5387 69.5045 37.0107 70.1765 36.648C70.8485 36.2747 71.6005 36.088 72.4325 36.088C73.2645 36.088 74.0165 36.2747 74.6885 36.648C75.3605 37.0107 75.8885 37.5333 76.2725 38.216C76.6672 38.8987 76.8645 39.6933 76.8645 40.6C76.8645 41.5067 76.6618 42.3067 76.2565 43C75.8618 43.6827 75.3232 44.2107 74.6405 44.584C73.9578 44.9573 73.2005 45.144 72.3685 45.144ZM72.3685 43.864C72.8912 43.864 73.3818 43.7413 73.8405 43.496C74.2992 43.2507 74.6672 42.8827 74.9445 42.392C75.2325 41.9013 75.3765 41.304 75.3765 40.6C75.3765 39.896 75.2378 39.2987 74.9605 38.808C74.6832 38.3173 74.3205 37.9547 73.8725 37.72C73.4245 37.4747 72.9392 37.352 72.4165 37.352C71.8832 37.352 71.3925 37.4747 70.9445 37.72C70.5072 37.9547 70.1552 38.3173 69.8885 38.808C69.6218 39.2987 69.4885 39.896 69.4885 40.6C69.4885 41.3147 69.6165 41.9173 69.8725 42.408C70.1392 42.8987 70.4912 43.2667 70.9285 43.512C71.3658 43.7467 71.8458 43.864 72.3685 43.864ZM82.6029 45.144C81.7815 45.144 81.0349 44.9573 80.3629 44.584C79.7015 44.2107 79.1789 43.6827 78.7949 43C78.4215 42.3067 78.2349 41.5067 78.2349 40.6C78.2349 39.704 78.4269 38.9147 78.8109 38.232C79.2055 37.5387 79.7389 37.0107 80.4109 36.648C81.0829 36.2747 81.8349 36.088 82.6669 36.088C83.4989 36.088 84.2509 36.2747 84.9229 36.648C85.5949 37.0107 86.1229 37.5333 86.5069 38.216C86.9015 38.8987 87.0989 39.6933 87.0989 40.6C87.0989 41.5067 86.8962 42.3067 86.4909 43C86.0962 43.6827 85.5575 44.2107 84.8749 44.584C84.1922 44.9573 83.4349 45.144 82.6029 45.144ZM82.6029 43.864C83.1255 43.864 83.6162 43.7413 84.0749 43.496C84.5335 43.2507 84.9015 42.8827 85.1789 42.392C85.4669 41.9013 85.6109 41.304 85.6109 40.6C85.6109 39.896 85.4722 39.2987 85.1949 38.808C84.9175 38.3173 84.5549 37.9547 84.1069 37.72C83.6589 37.4747 83.1735 37.352 82.6509 37.352C82.1175 37.352 81.6269 37.4747 81.1789 37.72C80.7415 37.9547 80.3895 38.3173 80.1229 38.808C79.8562 39.2987 79.7229 39.896 79.7229 40.6C79.7229 41.3147 79.8509 41.9173 80.1069 42.408C80.3735 42.8987 80.7255 43.2667 81.1629 43.512C81.6002 43.7467 82.0802 43.864 82.6029 43.864ZM90.4693 33.16V45H89.0133V33.16H90.4693Z"
+                                        fill="#133E3F" />
+                                </svg>
+                            </a>
+                        </div>
+                        <div>
+                            <button type="button"
+                                class="-mr-3 h-12 w-12 inline-flex items-center justify-center rounded-md text-gray-500 hover:text-gray-900"
+                                @click="open = true">
+                                <span class="sr-only">Open sidebar</span>
+                                <svg class="h-6 w-6" x-description="Heroicon name: outline/menu"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" aria-hidden="true">
+                                    <path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 relative z-0 flex overflow-hidden">
+                    <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
+                        <!-- Start main area-->
+                        {{-- <div class="p-8 flex items-center justify-center"> --}}
+                        <div class="flex items-center justify-center h-screen">
+                            <div class="w-full max-w-xs mx-auto">
+                                <form method="POST" action="{{ route('classes.update', ['id' => $Class->id]) }}">
+                                    <div class="">
+                                        <div class="mt-3">
+                                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                                                Update Class
+                                            </h3>
+                                            @csrf
+                                            @method('PATCH')
+                                            <!-- Class Name -->
+                                            <div class="my-4">
+                                                <label class="block text-gray-700 text-sm font-bold mb-2"
+                                                    for="classname">Class Name
+                                                </label>
+                                                <input
+                                                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                                    id="classname" type="text" name="title"
+                                                    value="{{ $Class->title }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
+                                        <button type="submit"
+                                            class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-sent text-base font-medium text-white hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 sm:ml-3 sm:w-auto sm:text-sm">
+                                            {{ __('Update Class') }}
+                                        </button>
+                                        <a href="{{ route('classes') }}"><button type="button"
+                                                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:mt-0 sm:w-auto sm:text-sm">
+                                                Cancel
+                                            </button></a>
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                        <!-- End main area -->
+                    </main>
+
                 </div>
             </div>
         </div>

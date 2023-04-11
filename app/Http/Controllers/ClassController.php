@@ -51,17 +51,25 @@ class ClassController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(roomClass $roomClass)
+    public function edit($id)
     {
-        //
+        $Class = RoomClass::findOrFail($id);
+        return view('updateclass', compact('Class'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, roomClass $roomClass)
+    public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+        ]);
+
+        $roomClass = RoomClass::findOrFail($id);
+        $roomClass->update($validated);
+
+        return redirect()->route('classes')->with('success', 'Class created successfully.');
     }
 
     /**

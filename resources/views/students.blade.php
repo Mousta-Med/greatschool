@@ -56,7 +56,8 @@
                             <div class="px-2 space-y-1">
 
                                 <a href="{{ route('dashboard') }}"
-                                    class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+
                                     <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500" x-state:on="Current"
                                         x-state:off="Default"
                                         x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;"
@@ -81,7 +82,7 @@
                                     Classes
                                 </a>
                                 <a href="{{ route('students') }}"
-                                    class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                    class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                     <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                         xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                         version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve"
@@ -184,7 +185,7 @@
                             <nav class="mt-5 flex-1" aria-label="Sidebar">
                                 <div class="px-2 space-y-1">
                                     <a href="{{ route('dashboard') }}"
-                                        class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white mr-3 h-6 w-6 group-hover:text-gray-500"
                                             x-state:on="Current" x-state:off="Default"
                                             x-state-description="Current: &quot;text-gray-500&quot;, Default: &quot;text-gray-400 group-hover:text-gray-500&quot;"
@@ -211,7 +212,7 @@
                                         Classes
                                     </a>
                                     <a href="{{ route('students') }}"
-                                        class="text-gray-600 hover:bg-gray-50 hover:text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
+                                        class="bg-gray-200 text-gray-900 group flex items-center px-2 py-2 text-sm font-medium rounded-md">
                                         <svg class="text-white group-hover:text-gray-500 mr-3 h-6 w-6"
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="_x32_"
