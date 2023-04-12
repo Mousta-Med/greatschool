@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('class_id')->nullable();
             $table->string('name');
+            $table->integer('age')->nullable();
+            $table->string('photo')->nullable();
             $table->string('material_study')->nullable();
             $table->string('phone')->nullable();
             $table->string('role')->default('admin');

@@ -5,6 +5,7 @@
 @section('content')
 
 <div class="">
+    @include('components.alert')
     <header class="header_img flex justify-center text-white items-center">
         <div class="flex flex-col justify-center items-center">
             <h1 x-data="{ message: 'I ❤️ Alpine' }" x-text="message"></h1>

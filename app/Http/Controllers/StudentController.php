@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\roomClass;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +16,8 @@ class StudentController extends Controller
     public function index()
     {
         $students = User::latest()->get();
-        return view('students', compact('students'));
+        $classes = roomClass::latest()->get();
+        return view('students', compact('students', 'classes'));
     }
 
     /**
@@ -32,20 +34,38 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'age' => ['required', 'integer', 'max:25'],
-            'phone' => ['required', 'string', 'regex:/^[0-9]{10}$/'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => ['required', 'string'],
+            'age' => ['required', 'integer'],
+            'class' => ['required', 'string'],
+            'photo' => ['required', 'image'],
+            'phone' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:' . User::class],
+            'password' => ['required', Rules\Password::defaults()],
         ]);
+
+        $photo_extension = $request->photo->getClientOriginalExtension();
+        $photo = time() . '.' . $photo_extension;
+        $path = 'img';
+        $request->photo->move($path, $photo);
+
+
+        $class = roomClass::where('title', $request->class)->first();
 
         $user = User::create([
             'name' => $request->name,
             'age' => $request->age,
+            'class_id' => $class->id,
+            'photo' => $photo,
             'phone' => $request->phone,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+
+        if ($user) {
+            return redirect()->route('students')->with('success', 'Student created successfully.');
+        } else {
+            return redirect()->route('students')->with('error', 'Unable to create student. Please try again.');
+        }
     }
 
     /**
