@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -12,7 +14,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('students');
+        $students = User::latest()->get();
+        return view('students', compact('students'));
     }
 
     /**
@@ -28,13 +31,27 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'age' => ['required', 'integer', 'max:25'],
+            'phone' => ['required', 'string', 'regex:/^[0-9]{10}$/'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'age' => $request->age,
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Student $student)
+    public function show(User $user)
     {
         //
     }
@@ -42,7 +59,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit(User $user)
     {
         //
     }
@@ -50,7 +67,7 @@ class StudentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, User $user)
     {
         //
     }
@@ -58,7 +75,7 @@ class StudentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Student $student)
+    public function destroy(User $user)
     {
         //
     }
