@@ -43,10 +43,8 @@ class StudentController extends Controller
             'password' => ['required', Rules\Password::defaults()],
         ]);
 
-        $photo_extension = $request->photo->getClientOriginalExtension();
-        $photo = time() . '.' . $photo_extension;
-        $path = 'img';
-        $request->photo->move($path, $photo);
+        $photo = $request->photo->getClientOriginalName();
+        $request->photo->move('img', $photo);
 
 
         $class = roomClass::where('title', $request->class)->first();

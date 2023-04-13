@@ -25,6 +25,11 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreignId('teacher_id')
+                ->nullable()
+                ->constrained('teachers')
+                ->onDelete('set null');
         });
     }
 

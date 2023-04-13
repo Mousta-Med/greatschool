@@ -469,7 +469,7 @@
                                                                                 Name</th>
                                                                             <th scope="col"
                                                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                                                                Title</th>
+                                                                                Class</th>
                                                                             <th scope="col"
                                                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
                                                                                 Email</th>
@@ -489,7 +489,14 @@
                                                                                     {{ $student->name }}</td>
                                                                                 <td
                                                                                     class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                                                    Director, Product Development</td>
+                                                                                    @if ($student->roomClass)
+                                                                                        {{-- {{ $student->class->title }} --}}
+                                                                                        no
+                                                                                    @else
+                                                                                        Yes
+                                                                                    @endif
+                                                                                    {{-- {{ $student->roomClass->title }} --}}
+                                                                                </td>
                                                                                 <td
                                                                                     class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                                                     {{ $student->email }}</td>
