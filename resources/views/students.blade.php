@@ -330,7 +330,7 @@
                                                                                 {{ $student->name }}
                                                                             </td>
                                                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                                                                {{$student->roomClass->title}}
+                                                                                {{$student->class->title}}
                                                                             </td>
                                                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                                                                 {{ $student->email }}

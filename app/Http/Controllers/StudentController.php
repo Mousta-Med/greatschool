@@ -16,7 +16,7 @@ class StudentController extends Controller
     public function index()
     {
         // $students = User::latest()->get();
-        $students = User::with('roomClass')->has('roomClass')->latest()->get();
+        $students = User::with('class')->has('class')->latest()->get();
         $classes = roomClass::latest()->get();
         return view('students', compact('students', 'classes'));
     }
