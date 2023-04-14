@@ -38,8 +38,9 @@
     </div>
 @endif
 
-@if (Session::has('error'))
-    <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 3000)"
+@if (Session::has('error') || $errors->any())
+
+    <div x-data="{ showMessage: true }" x-show="showMessage" x-init="setTimeout(() => showMessage = false, 5000)"
         class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto">
             <div class="rounded-md bg-red-300 p-4">
@@ -52,7 +53,17 @@
                         </svg>
                     </div>
                     <div class="ml-3">
-                        <strong>Error !</strong> {{ session('error') }}
+                        <strong>Error !</strong>
+                        @if (Session::has('error'))
+                            {{ session('error') }}
+                        @else
+                            Please fix the following errors:
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                     <div class="ml-auto pl-3">
                         <div class="-mx-1.5 -my-1.5">

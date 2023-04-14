@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\roomClass;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Hash;
 
 class TeacherController extends Controller
 {
@@ -11,7 +15,9 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = User::where('role', 'teacher')->latest()->get();
+        $classes = roomClass::latest()->get();
+        return view('teachers', compact('teachers', 'classes'));
     }
 
     /**
@@ -19,7 +25,6 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -27,7 +32,34 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'string'],
+            'material' => ['required', 'string'],
+            'class' => ['required', 'string'],
+            'photo' => ['required', 'image'],
+            'phone' => ['required', 'string'],
+            'email' => ['required', 'string', 'email', 'unique:' . User::class],
+            'password' => ['required', Rules\Password::defaults()],
+        ]);
+
+        $photo = $request->photo->getClientOriginalName();
+        $request->photo->move('img', $photo);
+
+
+        $class = roomClass::where('title', $request->class)->first();
+
+        $user = User::create([
+            'name' => $request->name,
+            'material_study' => $request->material,
+            'class_id' => $class->id,
+            'photo' => $photo,
+            'role' => 'teacher',
+            'phone' => $request->phone,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        return redirect()->route('teachers')->with('success', 'Teacher created successfully.');
     }
 
     /**
@@ -59,6 +91,9 @@ class TeacherController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $teacher = User::findOrFail($id);
+        $teacher->delete();
+
+        return redirect()->route('teachers')->with('success', 'Teachers Deleted successfully.');
     }
 }

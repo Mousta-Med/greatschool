@@ -251,8 +251,6 @@
                                 </form>
                             </div>
                         </div>
-
-
                         <!-- End main area -->
                     </main>
 

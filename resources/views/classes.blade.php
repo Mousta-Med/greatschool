@@ -143,8 +143,7 @@
                             <div class="flex items-center">
                                 <div>
                                     <img class="inline-block h-9 w-9 rounded-full"
-                                        src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80"
-                                        alt="">
+                                        src="/img/{{ Auth::user()->photo }}" alt="admin-photo">
                                 </div>
                                 <div class="ml-3">
                                     <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">
@@ -274,9 +273,9 @@
                             <a href="{{ route('profile.edit') }}" class="flex-shrink-0 w-full group block">
                                 <div class="flex items-center">
                                     <div>
+
                                         <img class="inline-block h-9 w-9 rounded-full"
-                                            src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=8&amp;w=256&amp;h=256&amp;q=80"
-                                            alt="">
+                                            src="/img/{{ Auth::user()->photo }}" alt="admin-photo">
                                     </div>
                                     <div class="ml-3">
                                         <p class="text-sm font-medium text-gray-700 group-hover:text-gray-900">

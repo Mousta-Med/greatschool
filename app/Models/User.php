@@ -23,6 +23,8 @@ class User extends Authenticatable
         'age',
         'phone',
         'class_id',
+        'material_study',
+        'role',
         'photo',
         'email',
         'password',

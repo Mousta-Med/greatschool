@@ -13,7 +13,6 @@ class ClassController extends Controller
     public function index()
     {
         $classes = roomClass::latest()->get();
-        // dd($classes);
         return view('classes', compact("classes"));
     }
 
@@ -69,7 +68,7 @@ class ClassController extends Controller
         $roomClass = RoomClass::findOrFail($id);
         $roomClass->update($validated);
 
-        return redirect()->route('classes')->with('success', 'Class created successfully.');
+        return redirect()->route('classes')->with('success', 'Class Updated successfully.');
     }
 
     /**
@@ -80,6 +79,6 @@ class ClassController extends Controller
         $roomClass = RoomClass::findOrFail($id);
         $roomClass->delete();
 
-        return redirect()->route('classes');
+        return redirect()->route('classes')->with('success', 'Class Deleted successfully.');
     }
 }
