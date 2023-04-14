@@ -321,8 +321,6 @@
                 <div class="flex-1 relative z-0 flex overflow-hidden">
                     <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last">
                         <!-- Start main area-->
-                        <div>
-                        </div>
                         <!-- End main area -->
                     </main>
 
