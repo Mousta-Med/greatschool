@@ -75,15 +75,38 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $classes = roomClass::latest()->get();
+        $teacher = User::findOrFail($id);
+        return view('updateteacher', compact('classes', 'teacher'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+
+        $validated = $request->validate([
+            'name' => ['required', 'string'],
+            'material_study' => ['required', 'string'],
+            'class' => ['required', 'string'],
+            'phone' => ['required', 'string'],
+            'email' => ['required', 'string', 'email'],
+        ]);
+
+        if ($request->hasFile('photo')) {
+            $photo = $request->photo->getClientOriginalName();
+            $request->photo->move('img', $photo);
+            $validated['photo'] = $photo;
+        }
+        $class = roomClass::where('title', $request->class)->first();
+
+        $validated['class_id'] = $class->id;
+
+        $teacher = User::findOrFail($id);
+        $teacher->update($validated);
+
+        return redirect()->route('teachers')->with('success', 'Teacher Updated successfully.');
     }
 
     /**
