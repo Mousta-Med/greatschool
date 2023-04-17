@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\roomClass;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 
@@ -73,11 +74,24 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
+    // public function edit($id)
+    // {
+    //     if ('role' == 'student') {
+    //         $classes = roomClass::latest()->get();
+    //         $student = User::findOrFail($id);
+    //         return view('updatestudent', compact('classes', 'student'));
+    //     }
+    // }
     public function edit($id)
     {
-        $classes = roomClass::latest()->get();
         $student = User::findOrFail($id);
-        return view('updatestudent', compact('classes', 'student'));
+
+        if ($student->role === 'student') {
+            $classes = roomClass::latest()->get();
+            return view('updatestudent', compact('classes', 'student'));
+        } else {
+            abort(Response::HTTP_NOT_FOUND);
+        }
     }
 
     /**
