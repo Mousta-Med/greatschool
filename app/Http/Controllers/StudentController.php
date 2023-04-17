@@ -98,6 +98,10 @@ class StudentController extends Controller
             $validated['photo'] = $photo;
         }
 
+        $class = roomClass::where('title', $request->class)->first();
+
+        $validated['class_id'] = $class->id;
+
         $student = User::findOrFail($id);
         $student->update($validated);
 

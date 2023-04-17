@@ -23,12 +23,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home', [Homecontroller::class, 'index'])->name('home');
 Route::get('/', [Homecontroller::class, 'index'])->name('home');
 
-Route::get('/admin/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware('teacher')->group(function () {
+    Route::get('teacher', [Homecontroller::class, 'create'])->name('teacher');
+});
 
 
-Route::middleware('auth')->group(function () {
+
+
+Route::middleware('auth', 'admin')->group(function () {
+    //dashboard
+    Route::get('/admin/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     //profile
     Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
