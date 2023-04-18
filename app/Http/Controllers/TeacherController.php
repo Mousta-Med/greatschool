@@ -75,9 +75,14 @@ class TeacherController extends Controller
      */
     public function edit(string $id)
     {
-        $classes = roomClass::latest()->get();
         $teacher = User::findOrFail($id);
-        return view('updateteacher', compact('classes', 'teacher'));
+
+        if ($teacher->role === 'teacher') {
+            $classes = roomClass::latest()->get();
+            return view('updateteacher', compact('classes', 'teacher'));
+        } else {
+            abort('403');
+        }
     }
 
     /**

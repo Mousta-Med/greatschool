@@ -27,8 +27,16 @@ Route::middleware('teacher')->group(function () {
     Route::get('teacher', [Homecontroller::class, 'create'])->name('teacher');
 });
 
+Route::middleware('student')->group(function () {
+    Route::get('student', [Homecontroller::class, 'store'])->name('student');
+});
 
 
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::middleware('auth', 'admin')->group(function () {
     //dashboard
@@ -36,9 +44,6 @@ Route::middleware('auth', 'admin')->group(function () {
         return view('dashboard');
     })->name('dashboard');
     //profile
-    Route::get('/admin/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/admin/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/admin/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     //classes
     Route::get('/admin/classes', [ClassController::class, 'index'])->name('classes');
     Route::get('/admin/classes/edit/{id}', [ClassController::class, 'edit'])->name('classes.edit');

@@ -27,7 +27,7 @@ class Homecontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "student middleware";
     }
 
     /**

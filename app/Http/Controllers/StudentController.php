@@ -74,14 +74,7 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    // public function edit($id)
-    // {
-    //     if ('role' == 'student') {
-    //         $classes = roomClass::latest()->get();
-    //         $student = User::findOrFail($id);
-    //         return view('updatestudent', compact('classes', 'student'));
-    //     }
-    // }
+
     public function edit($id)
     {
         $student = User::findOrFail($id);
@@ -90,7 +83,7 @@ class StudentController extends Controller
             $classes = roomClass::latest()->get();
             return view('updatestudent', compact('classes', 'student'));
         } else {
-            abort(Response::HTTP_NOT_FOUND);
+            abort('403');
         }
     }
 
