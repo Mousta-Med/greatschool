@@ -327,8 +327,8 @@
                         <div class="absolute inset-0 py-6 px-4 sm:px-6 lg:px-8">
                             <div class="h-full">
                                 @include('components.alert')
-                                <div x-data="{ open: false }" x-init="">
-                                    <div class="fixed z-10 inset-0 overflow-y-auto" x-show="open"
+                                <div x-data="{ open: false }">
+                                    <div x-cloak class="fixed z-10 inset-0 overflow-y-auto" x-show="open"
                                         x-transition:enter="ease-out duration-300"
                                         x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                                         x-transition:leave="ease-in duration-200"

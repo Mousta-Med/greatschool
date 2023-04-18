@@ -125,4 +125,9 @@ class StudentController extends Controller
 
         return redirect()->route('students')->with('success', 'Student Deleted successfully.');
     }
+
+    public function home()
+    {
+        return view('student');
+    }
 }

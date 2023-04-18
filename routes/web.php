@@ -24,11 +24,11 @@ Route::get('/home', [Homecontroller::class, 'index'])->name('home');
 Route::get('/', [Homecontroller::class, 'index'])->name('home');
 
 Route::middleware('teacher')->group(function () {
-    Route::get('teacher', [Homecontroller::class, 'create'])->name('teacher');
+    Route::get('teacher', [teacherController::class, 'home'])->name('teacher');
 });
 
 Route::middleware('student')->group(function () {
-    Route::get('student', [Homecontroller::class, 'store'])->name('student');
+    Route::get('student', [StudentController::class, 'home'])->name('student');
 });
 
 

@@ -124,4 +124,9 @@ class TeacherController extends Controller
 
         return redirect()->route('teachers')->with('success', 'Teachers Deleted successfully.');
     }
+
+    public function home()
+    {
+        return view('teacher');
+    }
 }

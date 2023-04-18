@@ -55,3 +55,7 @@ a {
 .center_bar {
     background-color: #133E3F;
 }
+
+[x-cloak] {
+    display: none !important;
+}
