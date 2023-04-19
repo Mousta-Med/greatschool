@@ -59,3 +59,16 @@ a {
 [x-cloak] {
     display: none !important;
 }
+
+.hero {
+    background-size: cover;
+    height: 70vh;
+    background-image: url(/img/teacher_hero.jpg);
+}
+
+@media screen and (max-width : 600px) {
+    .hero {
+        background-position: center;
+    }
+
+}

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\roomClass;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
@@ -127,6 +128,8 @@ class TeacherController extends Controller
 
     public function home()
     {
-        return view('teacher');
+
+        $students = User::where('role', 'student')->where('class_id', Auth::user()->class_id)->latest()->get();
+        return view('teacher', compact('students'));
     }
 }
