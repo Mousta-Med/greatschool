@@ -25,21 +25,27 @@
                         <div class="flex items-center">
                             <div class="hidden sm:block sm:ml-6">
                                 <div class="flex space-x-4">
-                                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                                        {{ __('home') }}
-                                    </x-nav-link>
+                                    <a class="text-white hover:text-place block px-3 pt-9 pb-2 text-base font-medium {{ request()->is('/') ? 'bg-place hover:bg-green-500' : '' }}"
+                                        href="{{ route('home') }}">
+                                        {{ __('HOME') }}
+                                    </a>
+                                    @if (auth()->check() && Auth::user()->role == 'teacher')
+                                        <a class="text-white hover:text-place block px-3 pt-9 pb-2 text-base font-medium {{ request()->is('teacher') ? 'bg-place hover:bg-green-500' : '' }}"
+                                            href="{{ route('teacher') }}">
+                                            {{ __('Students') }}
+                                        </a>
+                                    @endif
                                     @guest
-                                        @if (Route::has('login'))
-                                            <x-nav-link :href="route('login')" :active="request()->routeIs('login')">
-                                                {{ __('Login') }}</x-nav-link>
-                                        @endif
+                                        <a class="text-white hover:text-place block px-3 pt-9 pb-2 text-base font-medium {{ request()->is('login') ? 'bg-place hover:bg-green-500' : '' }}"
+                                            href="{{ route('login') }}">
+                                            {{ __('Login') }}</a>
                                     @else
                                         <!-- Profile dropdown -->
                                         <div x-data="{ open: false }" x-init="window.addEventListener('click', event => {
                                             if (open && !event.target.closest('.relative')) {
                                                 open = false;
                                             }
-                                        });" class="ml-3 relative">
+                                        });" class="ml-3 relative  pt-7">
                                             <div>
                                                 <button type="button"
                                                     class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
@@ -107,12 +113,17 @@
             <div x-description="Mobile menu, show/hide based on menu state." class="sm:hidden" id="mobile-menu"
                 x-show="open" x-cloak>
                 <div class="px-2 pt-2 pb-3 space-y-1">
-                    <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                     <a class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                         href="{{ route('home') }}">
-                        {{ __('home') }}
+                        {{ __('Home') }}
                     </a>
 
+                    @if (auth()->check() && Auth::user()->role == 'teacher')
+                        <a class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                            href="{{ route('teacher') }}">
+                            {{ __('Students') }}
+                        </a>
+                    @endif
 
                     @guest
                         @if (Route::has('login'))
@@ -124,7 +135,8 @@
                         <div class="pt-4 pb-3 border-t border-gray-700">
                             <div class="flex items-center px-5">
                                 <div class="flex-shrink-0">
-                                    <img class="h-10 w-10 rounded-full" src="/img/{{ Auth::user()->photo }}"alt="">
+                                    <img class="h-10 w-10 rounded-full"
+                                        src="/img/{{ Auth::user()->photo }}"alt="">
                                 </div>
                                 <div class="ml-3 px-4 py-2 text-sm text-gray-700">
                                     <div class="text-base font-medium text-white">{{ Auth::user()->name }}</div>
@@ -160,7 +172,7 @@
                 <div class="w-full lg:w-1/3 md:w-1/2 p-4">
                     <h5 class="mb-3">Quick links</h5>
                     <ul class="list-unstyled text-muted">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
                     </ul>
                 </div>
                 <div class="w-full lg:w-1/3 md:w-1/2 p-4">
