@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absence;
 use App\Models\User;
 use App\Models\roomClass;
 use Illuminate\Support\Facades\Auth;
@@ -128,8 +129,47 @@ class TeacherController extends Controller
 
     public function home()
     {
-
         $students = User::where('role', 'student')->where('class_id', Auth::user()->class_id)->latest()->get();
         return view('teacher', compact('students'));
+    }
+    public function manage($id)
+    {
+        $student = User::findOrFail($id);
+        $absences = Absence::get()->where('user_id', $id);
+        if ($student->role === 'student') {
+            return view('manageStudent', compact('student', 'absences'));
+        } else {
+            abort('403');
+        }
+    }
+    public function absence(Request $request, $id)
+    {
+        $student = User::findOrFail($id);
+        $validated =  $request->validate([
+            'date' => 'required|date|after_or_equal:today',
+        ]);
+
+
+        $existingAbsences = Absence::where('user_id', $id)
+            ->whereIn('absenceDate', (array) $request->date)
+            ->get();
+
+        if ($existingAbsences->count() === 0) {
+            $absence = Absence::create([
+                'user_id' => $id,
+                'absenceDate' => $request->date,
+            ]);
+            return redirect()->route('manageStudent', $id)->with('success', 'Absence Added successfully.');
+        } else {
+            return redirect()->route('manageStudent', $id)->with('error', 'Duplicated date.');
+        }
+
+
+        // $absence = Absence::create([
+        //     'user_id' => $id,
+        //     'absenceDate' => $request->date,
+        // ])->whereNotIn('absenceDate', $request->date);
+
+
     }
 }

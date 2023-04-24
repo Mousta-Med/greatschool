@@ -53,4 +53,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(roomClass::class, 'class_id');
     }
+    public function Absence()
+    {
+        return $this->hasMany(Absence::class, 'user_id');
+    }
 }

@@ -19,31 +19,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
+//home
 Route::get('/home', [Homecontroller::class, 'index'])->name('home');
 Route::get('/', [Homecontroller::class, 'index'])->name('home');
-
-Route::middleware('teacher')->group(function () {
-    Route::get('teacher', [teacherController::class, 'home'])->name('teacher');
-});
-
-Route::middleware('student')->group(function () {
-    Route::get('student', [StudentController::class, 'home'])->name('student');
-});
-
-
+//profile
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
+//admin
 Route::middleware('auth', 'admin')->group(function () {
-    //dashboard
     Route::get('/admin/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    //profile
     //classes
     Route::get('/admin/classes', [ClassController::class, 'index'])->name('classes');
     Route::get('/admin/classes/edit/{id}', [ClassController::class, 'edit'])->name('classes.edit');
@@ -63,5 +52,14 @@ Route::middleware('auth', 'admin')->group(function () {
     Route::delete('/admin/teachers/{id}', [teacherController::class, 'destroy'])->name('teachers.destroy');
     Route::patch('/admin/teachers/{id}', [teacherController::class, 'update'])->name('teachers.update');
 });
-
+//teacher
+Route::middleware('teacher')->group(function () {
+    Route::get('teacher', [teacherController::class, 'home'])->name('teacher');
+    Route::get('teacher/student/{id}', [teacherController::class, 'manage'])->name('manageStudent');
+    Route::post('teacher/absence/{id}', [teacherController::class, 'absence'])->name('absence');
+});
+//student
+Route::middleware('student')->group(function () {
+    Route::get('student', [StudentController::class, 'home'])->name('student');
+});
 require __DIR__ . '/auth.php';

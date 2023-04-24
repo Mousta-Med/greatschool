@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-style: normal;
 }
 
@@ -15,7 +15,7 @@
 }
 
 .hidden-spacer {
-    height: 56px
+    height: 56px;
 }
 
 .logo {
@@ -27,15 +27,15 @@
 .logo .logo_child {
     margin-top: -15px;
     text-decoration: none;
-    color: #133E3F;
+    color: #133e3f;
 }
 
 .sent {
-    background-color: #4BC5B8;
+    background-color: #4bc5b8;
 }
 
 .read_more {
-    background-color: #133E3F;
+    background-color: #133e3f;
     color: white;
 }
 
@@ -53,7 +53,7 @@ a {
 }
 
 .center_bar {
-    background-color: #133E3F;
+    background-color: #133e3f;
 }
 
 [x-cloak] {
@@ -66,9 +66,8 @@ a {
     background-image: url(/img/teacher_hero.jpg);
 }
 
-@media screen and (max-width : 600px) {
+@media screen and (max-width: 600px) {
     .hero {
         background-position: center;
     }
-
 }
