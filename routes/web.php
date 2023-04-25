@@ -57,6 +57,7 @@ Route::middleware('teacher')->group(function () {
     Route::get('teacher', [teacherController::class, 'home'])->name('teacher');
     Route::get('teacher/student/{id}', [teacherController::class, 'manage'])->name('manageStudent');
     Route::post('teacher/absence/{id}', [teacherController::class, 'absence'])->name('absence');
+    Route::post('teacher/mark/{id}', [teacherController::class, 'mark'])->name('mark');
 });
 //student
 Route::middleware('student')->group(function () {

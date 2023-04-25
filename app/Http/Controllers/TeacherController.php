@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Absence;
+use App\Models\Marks;
 use App\Models\User;
 use App\Models\roomClass;
 use Illuminate\Support\Facades\Auth;
@@ -136,8 +137,9 @@ class TeacherController extends Controller
     {
         $student = User::findOrFail($id);
         $absences = Absence::get()->where('user_id', $id);
+        $marks = Marks::where('student_id', $id)->first();
         if ($student->role === 'student') {
-            return view('manageStudent', compact('student', 'absences'));
+            return view('manageStudent', compact('student', 'absences', 'marks'));
         } else {
             abort('403');
         }
@@ -163,13 +165,27 @@ class TeacherController extends Controller
         } else {
             return redirect()->route('manageStudent', $id)->with('error', 'Duplicated date.');
         }
+    }
+    public function mark(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'exam' => 'required|string',
+            'mark' => 'required|min:0|max:20',
+        ]);
 
+        $mark = Marks::where('student_id', $id)
+            ->where('teacher_id', Auth::user()->id)
+            ->update([$validatedData['exam'] => $validatedData['mark']]);
 
-        // $absence = Absence::create([
-        //     'user_id' => $id,
-        //     'absenceDate' => $request->date,
-        // ])->whereNotIn('absenceDate', $request->date);
-
-
+        if ($mark) {
+            return redirect()->route('manageStudent', $id)->with('success', 'Mark Added successfully.');
+        } else {
+            $mark = Marks::create([
+                'student_id' => $id,
+                'teacher_id' => Auth::user()->id,
+                $validatedData['exam'] => $validatedData['mark'],
+            ]);
+            return redirect()->route('manageStudent', $id)->with('success', 'Mark Added successfully.');
+        }
     }
 }
