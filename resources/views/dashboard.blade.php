@@ -255,7 +255,6 @@
                                             </div>
                                         </dd>
                                     </div>
-
                                     <div class="relative bg-white pt-5 px-4 pb-12 sm:pt-6 sm:px-6 shadow rounded-lg overflow-hidden">
                                         <dt>
                                             <div class="absolute bg-indigo-500 rounded-md p-3">
