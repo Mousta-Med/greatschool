@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 //admin
 Route::middleware('auth', 'admin')->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    //dashboard
+    Route::get('/admin/dashboard', [HomeController::class, 'admin_home'])->name('dashboard');
+    Route::get('/admin/dashboard/{id}', [HomeController::class, 'justify'])->name('justify');
     //classes
     Route::get('/admin/classes', [ClassController::class, 'index'])->name('classes');
     Route::get('/admin/classes/edit/{id}', [ClassController::class, 'edit'])->name('classes.edit');

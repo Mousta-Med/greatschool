@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Absence;
+use App\Models\roomClass;
+use App\Models\User;
 
 class Homecontroller extends Controller
 {
@@ -19,7 +22,6 @@ class Homecontroller extends Controller
      */
     public function create()
     {
-        return "teacher middleware";
     }
 
     /**
@@ -27,7 +29,6 @@ class Homecontroller extends Controller
      */
     public function store(Request $request)
     {
-        return "student middleware";
     }
 
     /**
@@ -60,5 +61,21 @@ class Homecontroller extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function admin_home()
+    {
+        $studentstat = count(User::get()->where('role', 'student'));
+        $teacherstat = count(User::get()->where('role', 'teacher'));
+        $classstat = count(roomClass::get());
+        $absences = Absence::get();
+        return view('dashboard', compact('absences', 'studentstat', 'classstat', 'teacherstat'));
+    }
+    public function justify($id)
+    {
+        $absence = Absence::findOrFail($id);
+        $absence->where('id', $id)
+            ->update(['status' => 'Justified']);
+
+        return redirect()->route('dashboard')->with('success', 'Absence Justified successfully.');
     }
 }

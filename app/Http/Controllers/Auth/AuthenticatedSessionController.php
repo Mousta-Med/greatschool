@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\Absence;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -34,7 +35,7 @@ class AuthenticatedSessionController extends Controller
         } elseif (Auth::user()->role == "student") {
             return redirect()->route('student');
         } else {
-            return redirect()->route('classes');
+            return redirect()->route('dashboard');
         }
     }
 

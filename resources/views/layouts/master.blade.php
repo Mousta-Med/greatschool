@@ -29,7 +29,7 @@
                                         {{ __('HOME') }}
                                     </a>
                                     @if (auth()->check() && Auth::user()->role == 'teacher')
-                                    <a class="text-white hover:text-place block px-3 pt-9 pb-2 text-base font-medium {{ request()->is('teacher') || request()->is('teacher/student/4') ? 'bg-place hover:bg-green-500' : '' }}" href="{{ route('teacher') }}">
+                                    <a class="text-white hover:text-place block px-3 pt-9 pb-1 text-base font-medium {{ request()->is('teacher') || request()->is('teacher/student/4') ? 'bg-place hover:bg-sent' : '' }}" href="{{ route('teacher') }}">
                                         {{ __('Students') }}
                                     </a>
                                     @endif
@@ -51,9 +51,9 @@
                                         </div>
 
                                         <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-slate-600 hover:transition delay-75">Your
+                                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-place hover:transition delay-75">Your
                                                 Profile</a>
-                                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-slate-600 hover:transition delay-75">
+                                            <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-white hover:bg-place hover:transition delay-75">
                                                 {{ __('Logout') }}
                                             </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
