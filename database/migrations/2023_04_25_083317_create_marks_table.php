@@ -19,7 +19,7 @@ return new class extends Migration
             $table->float('exam2')->default(0);
             $table->float('exam3')->default(0);
             $table->foreign('student_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('teacher_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

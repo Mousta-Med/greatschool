@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marks;
 use App\Models\User;
 use App\Models\roomClass;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 
@@ -128,6 +130,9 @@ class StudentController extends Controller
 
     public function home()
     {
-        return view('student');
+        $id = Auth::user()->id;
+        $Marks = Marks::where('student_id', $id)->get();
+
+        return view('student', compact('Marks'));
     }
 }

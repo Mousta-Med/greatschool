@@ -170,6 +170,11 @@
                                                         Total</th>
                                                     <td id="total"
                                                         class="pr-4 pt-4 text-right text-sm font-semibold text-gray-900 sm:pr-6 md:pr-0">
+                                                        @if ($marks)
+                                                            {{ number_format(($marks->exam1 + $marks->exam2 + $marks->exam3) / 3, 2) }}/20
+                                                        @else
+                                                            0/20
+                                                        @endif
                                                     </td>
                                                 </tr>
                                             </tfoot>
@@ -200,7 +205,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+                        <div class="px-4 py-3 bg-gray-50 flex justify-between">
+                            <a href="{{ route('teacher') }}">
+                                <div
+                                    class="bg-red-600 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
+                                    Back
+                                </div>
+                            </a>
                             <button type="submit"
                                 class="bg-gray-800 border border-transparent rounded-md shadow-sm py-2 px-4 inline-flex justify-center text-sm font-medium text-white hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900">
                                 Save

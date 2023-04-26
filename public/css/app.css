@@ -66,8 +66,17 @@ a {
     background-image: url(/img/teacher_hero.jpg);
 }
 
+.login {
+    background-image: url(/img/IMAGE.png);
+    height: 64.70vh;
+}
+
 @media screen and (max-width: 600px) {
     .hero {
         background-position: center;
+    }
+
+    .hero_title {
+        font-size: 20px;
     }
 }

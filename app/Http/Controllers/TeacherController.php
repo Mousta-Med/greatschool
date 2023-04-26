@@ -137,7 +137,7 @@ class TeacherController extends Controller
     {
         $student = User::findOrFail($id);
         $absences = Absence::get()->where('user_id', $id);
-        $marks = Marks::where('student_id', $id)->first();
+        $marks = Marks::where('student_id', $id)->where('teacher_id', Auth::user()->id)->first();
         if ($student->role === 'student') {
             return view('manageStudent', compact('student', 'absences', 'marks'));
         } else {
