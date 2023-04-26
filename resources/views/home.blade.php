@@ -67,7 +67,7 @@
                         <div class="pb-5">
                             <label for="email-address" class="sr-only">Email address</label>
                             <input id="email-address" type="email" name="email" value="{{ old('email') }}" required
-                                autofocus autocomplete="username"
+                                autocomplete="username"
                                 class="appearance-none rounded-md relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                 placeholder="Email address">
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
