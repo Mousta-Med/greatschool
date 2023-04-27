@@ -221,7 +221,7 @@
                                 <a href="{{ route('home') }}">
                                     <button type="button"
                                         class="bg-red-600 hover:bg-red-700 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
-                                        Back
+                                        Home
                                     </button>
                                 </a>
                             </div>

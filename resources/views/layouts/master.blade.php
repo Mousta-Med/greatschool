@@ -42,6 +42,12 @@
                                             {{ __('Student') }}
                                         </a>
                                     @endif
+                                    @if (auth()->check() && Auth::user()->role == 'admin')
+                                        <a class="text-white hover:text-place block px-3 pt-9 pb-1 text-base font-medium }}"
+                                            href="{{ route('dashboard') }}">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    @endif
                                     @guest
                                         <a class="text-white hover:text-place block px-3 pt-9 pb-2 text-base font-medium {{ request()->is('login') ? 'bg-place hover:bg-green-500' : '' }}"
                                             href="{{ route('login') }}">
@@ -129,6 +135,18 @@
                         <a class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
                             href="{{ route('teacher') }}">
                             {{ __('Students') }}
+                        </a>
+                    @endif
+                    @if (auth()->check() && Auth::user()->role == 'student')
+                        <a class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                            href="{{ route('student') }}">
+                            {{ __('Student') }}
+                        </a>
+                    @endif
+                    @if (auth()->check() && Auth::user()->role == 'admin')
+                        <a class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium"
+                            href="{{ route('dashboard') }}">
+                            {{ __('Dashboard') }}
                         </a>
                     @endif
 
