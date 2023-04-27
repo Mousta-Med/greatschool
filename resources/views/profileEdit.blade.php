@@ -206,25 +206,27 @@
                                         autocomplete="new-password" />
                                     <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
                                 </div>
+                                <div class=" flex justify-between">
+                                    <div class="">
+                                        <a href="{{ route('home') }}">
+                                            <button type="button"
+                                                class="bg-red-600 hover:bg-red-700 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
+                                                Home
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="">
+                                        <button
+                                            class="bg-sent inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-400 focus:ring-1 transition ease-in-out duration-150'">{{ __('Save') }}</button>
 
-                                <div class="flex justify-end">
-                                    <button
-                                        class="bg-sent inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-green-400 focus:ring-1 transition ease-in-out duration-150'">{{ __('Save') }}</button>
+                                        @if (session('status') === 'password-updated')
+                                            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
+                                                class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
+                                        @endif
+                                    </div>
 
-                                    @if (session('status') === 'password-updated')
-                                        <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                                            class="text-sm text-gray-600 dark:text-gray-400">{{ __('Saved.') }}</p>
-                                    @endif
                                 </div>
                             </form>
-                            <div class=" relative -mt-9 flex justify-start">
-                                <a href="{{ route('home') }}">
-                                    <button type="button"
-                                        class="bg-red-600 hover:bg-red-700 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest">
-                                        Home
-                                    </button>
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
